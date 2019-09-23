@@ -11,6 +11,7 @@
 10. 13211311123113112211
 */
 /**
+ * 递归
  * @param {number} n
  * @return {string}
  */
@@ -40,4 +41,33 @@ function readMeth(s) {
   }
   return res
 }
-console.log(countAndSay(9))
+
+
+/**
+ * 利用
+ * @param {number} n
+ * @return {string}
+ */
+var countAndSay = function(n) {
+  var a = ['1'];
+  for (var i = 1; i < n; i++) {
+    a = preStr(a)
+  }
+  return a.join('')
+
+  function preStr(a) {
+    let startIdx = 0
+    let endIdx = 0
+    let nextArr = []
+    while (endIdx < a.length) {
+      while(a[startIdx] === a[endIdx]) {
+          endIdx++
+      }
+      let num = endIdx - startIdx
+      nextArr.push(num.toString())
+      nextArr.push(a[startIdx])
+      startIdx = endIdx
+    }
+    return nextArr
+  }
+};

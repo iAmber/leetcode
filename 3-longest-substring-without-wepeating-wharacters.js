@@ -28,18 +28,18 @@ const lengthOfLongestSubstring = (s) =>{
 // 68ms
 const lengthOfLongestSubstring2 = (s) =>{
   if (s.length == 0 || s.length == 1) return s.length
-let strLength = 1
-let curStr = ''
-for (let i = 0; i < s.length; i++) {
-    let index = curStr.indexOf(s.charAt(i))
-  if (index !== -1) {
-      // repeat		    
-      curStr = curStr.slice(index + 1, curStr.length)
-      curStr += s.charAt(i)
-  } else {
-      curStr += s.charAt(i)
+  let strLength = 1
+  let curStr = ''
+  for (let i = 0; i < s.length; i++) {
+      let index = curStr.indexOf(s.charAt(i))
+    if (index !== -1) {
+        // repeat		    
+        curStr = curStr.slice(index + 1, curStr.length)
+        curStr += s.charAt(i)
+    } else {
+        curStr += s.charAt(i)
+    }
+    strLength = Math.max(strLength, curStr.length)
   }
-  strLength = Math.max(strLength, curStr.length)
-}
-return strLength
+  return strLength
 };

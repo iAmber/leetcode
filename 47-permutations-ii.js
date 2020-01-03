@@ -2,6 +2,13 @@
  * @param {number[]} nums
  * @return {number[][]}
  */
+// Input: [1,1,2]
+// Output:
+// [
+//   [1,1,2],
+//   [1,2,1],
+//   [2,1,1]
+// ]
 const permuteUnique = function(nums) {
   if (!nums.length) return []
   if (nums.length === 1) return [nums]

@@ -66,6 +66,9 @@ function backtrack(arr, cur, open, close, max) {
     arr.push(cur);
     return;
   }
+  console.log('===== before', arr, cur, open, close)
   if (open < max) backtrack(arr, cur + "(", open + 1, close, max);
+  console.log('===== after', arr, cur, open, close)
   if (close < open) backtrack(arr, cur + ")", open, close + 1, max);
 }
+console.log(generateParenthesis2(2))

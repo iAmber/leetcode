@@ -19,7 +19,7 @@ const findMedianSortedArrays2 = function(A, B) {
     n = B.length;
 
   if (m > n) {
-    return findMedianSortedArrays(B, A);
+    return findMedianSortedArrays(B, A); // ensure A.length < B
   }
 
   let imin = 0,

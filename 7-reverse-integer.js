@@ -39,7 +39,7 @@ const reverse1 = function(num) {
   if (negative) return result * -1;
   return result;
 };
-
+// 64ms 
 const reverse3 = function(x) {
   if (x === 0) return x
   let negative = false;

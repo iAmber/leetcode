@@ -1,10 +1,18 @@
+// Input: candidates = [10,1,2,7,6,1,5], target = 8,
+// A solution set is:
+// [
+//   [1, 7],
+//   [1, 2, 5],
+//   [2, 6],
+//   [1, 1, 6]
+// ]
 /**
  * @param {number[]} candidates
  * @param {number} target
  * @return {number[][]}
  */
 
-const combinationSum = function(candidates, target) {
+const combinationSum2 = function(candidates, target) {
   candidates.sort((a, b) => a - b);
   const res = [];
   bt(candidates, target, res, [], 0);
@@ -17,10 +25,11 @@ function bt(candidates, target, res, combination, start) {
     return;
   }
   for (let i = start; i < candidates.length && target >= candidates[i]; i++) {
+    if (i > 0 && candidates[i] === candidates[i - 1] && i > start) continue; // 前后两个元素相同会出现一样的结果，需跳过
     combination.push(candidates[i]);
-    bt(candidates, target - candidates[i], res, combination, i);
+    bt(candidates, target - candidates[i], res, combination, i + 1);
     combination.pop();
   }
 }
 
-console.log(combinationSum([1,2], 6))
+console.log(combinationSum2([2,5,2,1,2], 5))

@@ -54,30 +54,30 @@ const searchMatrix = function(matrix, target) {
 };
 
 
-const searchMatrix = function(matrix, target) {
-  if (!matrix.length || !matrix[0].length) return false;
+// const searchMatrix = function(matrix, target) {
+//   if (!matrix.length || !matrix[0].length) return false;
 
-  for(let i = 0; i < matrix.length; i++) {
-      let arr = matrix[i];
-      let low = 0;
-      let high = arr.length - 1;
+//   for(let i = 0; i < matrix.length; i++) {
+//       let arr = matrix[i];
+//       let low = 0;
+//       let high = arr.length - 1;
 
-      if (target < arr[low]) return false;
+//       if (target < arr[low]) return false;
 
-      if (target <= arr[high]) {
-          while(low <= high) {
-              let mid = Math.floor(low + (high-low) /2 );
-              if (arr[mid]> target) {
-                  high = mid - 1;
-              } else if (arr[mid] < target) {
-                  low = mid + 1;
-              } else {
-                  return true;
-              }
-          }
-          return false;
-      }
-  }
+//       if (target <= arr[high]) {
+//           while(low <= high) {
+//               let mid = Math.floor(low + (high-low) /2 );
+//               if (arr[mid]> target) {
+//                   high = mid - 1;
+//               } else if (arr[mid] < target) {
+//                   low = mid + 1;
+//               } else {
+//                   return true;
+//               }
+//           }
+//           return false;
+//       }
+//   }
 
-  return false;
-};
+//   return false;
+// };

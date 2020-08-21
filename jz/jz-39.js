@@ -9,13 +9,12 @@
     this.left = null;
     this.right = null;
 } */
-function IsBalanced_Solution(pRoot)
-{
-    if (!root) return false
+function IsBalanced_Solution(pRoot){
+    if (!pRoot) return true
     var left = TreeDepth(pRoot.left)
     var right = TreeDepth(pRoot.right)
-    if (Math.abs(left, right) > 1) return false
-    return IsBalanced_Solution(left) && IsBalanced_Solution(right)
+    if (Math.abs(left - right) > 1) return false
+    return IsBalanced_Solution(pRoot.left) && IsBalanced_Solution(pRoot.right)
 }
 
 function TreeDepth(pRoot) {

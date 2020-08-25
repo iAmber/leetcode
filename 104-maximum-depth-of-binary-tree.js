@@ -24,7 +24,6 @@ var maxDepth = function(root) {
     maxDeep++;
     for(let i = 0; i < length; i++) {
       const temp = queue.shift();
-      console
       if (temp.left) {
         queue.push(temp.left)
       }

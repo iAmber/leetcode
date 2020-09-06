@@ -10,22 +10,26 @@
  * @param {TreeNode} root
  * @return {number}
  */
-var widthOfBinaryTree = function(root) {
-  if (root === null) return 1
-  let width = 1;
-  let queue = [root];
-  while(queue.length > 0) {
-    const length = queue.length;
-    width = Math.max(width, length);
-    for(let i = 0; i < length; i++) {
-      const temp = queue.shift();
-      if (temp.left) {
-        queue.push(temp.left)
-      }
-      if (temp.right) {
-        queue.push(temp.right)
-      }
+
+const widthOfBinaryTree = function(root) {
+  const mins = [0] // the leftmost position of each level
+  let max = 0
+
+  dfs(root, 0, 0)
+  return max
+
+  // depth first search
+  function dfs(currentNode, depth, position) {
+    if (!currentNode) return
+    if (depth === mins.length) {
+      mins[depth] = position
     }
+
+    const delta = position - mins[depth]
+    max = Math.max(max, delta + 1)
+    dfs(currentNode.left, depth + 1, delta * 2)
+    dfs(currentNode.right, depth + 1, delta * 2 + 1)
   }
-  return width
-};
+}
+
+console.log(widthOfBinaryTree([1,3,2,5,null,null,9,null,null,6,null,7]))

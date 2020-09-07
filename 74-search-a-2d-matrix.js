@@ -1,8 +1,10 @@
 /**
- * @param {number[][]} matrix
- * @param {number} target
- * @return {boolean}
+ * Write an efficient algorithm that searches for a value in an m x n matrix. 
+ * This matrix has the following properties:
+ *  Integers in each row are sorted from left to right.
+ *  The first integer of each row is greater than the last integer of the previous row.
  */
+
 /**
  * Input:
  * matrix = [
@@ -14,15 +16,17 @@
  * Output: true
  */
 
+/**
+ * @param {number[][]} matrix
+ * @param {number} target
+ * @return {boolean}
+ */
  // check target and row[0], find row
 const searchMatrix = function(matrix, target) {
   if(!matrix || !matrix.length) return false;
   let row = -1
   for(let i = 0;i<matrix.length;i++) {
-    if (target < matrix[i][0]) {
-      row = i - 1;
-      break
-    } else {
+    if(target >= matrix[i][0]) {
       row = i
     }
   }
@@ -52,32 +56,3 @@ const searchMatrix = function(matrix, target) {
     }
     return false;
 };
-
-
-// const searchMatrix = function(matrix, target) {
-//   if (!matrix.length || !matrix[0].length) return false;
-
-//   for(let i = 0; i < matrix.length; i++) {
-//       let arr = matrix[i];
-//       let low = 0;
-//       let high = arr.length - 1;
-
-//       if (target < arr[low]) return false;
-
-//       if (target <= arr[high]) {
-//           while(low <= high) {
-//               let mid = Math.floor(low + (high-low) /2 );
-//               if (arr[mid]> target) {
-//                   high = mid - 1;
-//               } else if (arr[mid] < target) {
-//                   low = mid + 1;
-//               } else {
-//                   return true;
-//               }
-//           }
-//           return false;
-//       }
-//   }
-
-//   return false;
-// };

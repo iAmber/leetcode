@@ -34,17 +34,11 @@ const shortestSeq = function(big, small) {
   let left = 0, right = 0, count = 0, res_l = -1, res_r = -1, minLen = 9999;
   while(right < big.length) {
     let cur = big[right];
-    if(s.containsKey(cur)) {
+    if(hash[cur]) {
       if(hash[cur] === 0)
       count++;
       hash[cur]++
     }
-  }
-  for(let i in hash) {
-    const cur = hash[i]
-    if(hash[i] === -1) return []
-    res[0] = Math.min(res[0], cur)
-    res[1] = Math.max(cur, res[1])
   }
   return res
 };

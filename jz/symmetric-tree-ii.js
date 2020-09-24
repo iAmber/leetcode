@@ -6,16 +6,12 @@
     this.right = null;
 } */
 function Mirror(root) {
-   if(!root) return null
-   if (!root.left && !root.right) return root
-   let tree = new TreeNode(root.val)
-   if (!root.right) {
-       tree.right = root.left
-   }
-   if (!root.left) {
-       tree.left = root.right
-   }
-   tree.left = Mirror(root.right)
-   tree.right = Mirror(root.left)
-   return tree
+  if(!root) return null
+  if (!root.left && !root.right) return root
+
+  const temp = root.left
+  root.left = Mirror(root.right)
+  root.right = Mirror(temp)
+  
+  return root
 }
